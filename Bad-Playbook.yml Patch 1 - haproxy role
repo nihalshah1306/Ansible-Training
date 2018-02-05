@@ -33,11 +33,9 @@
 
 - name: deploy tomcat
   hosts: apps
-  gather_facts: false
-  become: true
   sudo: yes
   roles:
-    - { role:  vinsser.tomcat }
+    - { role: vinsser.tomcat }
 
   - name: create ansible tomcat directory
     file:
