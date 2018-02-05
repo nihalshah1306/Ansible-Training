@@ -35,16 +35,9 @@
   hosts: apps
   gather_facts: false
   become: true
-
-  tasks:
-  - name: install tomcat
-    package:
-      name: tomcat
-      state: latest
-  - name: enable tomcat at boot
-    service:
-      name: tomcat
-      enabled: yes
+  sudo: yes
+  roles:
+    - { role:  vinsser.tomcat }
 
   - name: create ansible tomcat directory
     file:
